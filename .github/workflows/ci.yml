@@ -30,7 +30,7 @@ jobs:
         docker tag juan-crossfit-server rhkrgudwh/juan-crossfit-server:${GITHUB_SHA::7}
         docker push rhkrgudwh/juan-crossfit-server:${GITHUB_SHA::7}
     - name: Deploy
-      uses: applyboy/ssh-action@master
+      uses: appleboy/ssh-action@master
       with:
         host: ec2-user@ec2-3-38-210-236.ap-northeast-2.compute.amazonaws.com
         username: ec2-user
