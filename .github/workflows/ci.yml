@@ -41,4 +41,3 @@ jobs:
           docker tag rhkrgudwh/juan-crossfit-server:${GITHUB_SHA::7} juan-crossfit-server
           docker stop server
           docker run -d --rm --name server -p 80:3000 juan-crossfit-server
-
