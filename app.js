@@ -1,11 +1,34 @@
 import express from 'express';
+import morgan from 'morgan';
+import dotenv from 'dotenv';
+import cors from 'cors';
 
+import usersRouter from './routes/users.js';
+
+dotenv.config();
 const app = express();
 
-app.get('/hello', (req, res) => {
-  res.status(200).send('Hello real world!');
+app.use(cors());
+app.set('port', process.env.PORT || 3000);
+
+app.use((req, res, next) => {
+  if(process.env.NODE_ENV === 'production') {
+    morgan('combined')(req, res, next);
+  } else {
+    morgan('dev')(req, res, next);
+  }
 });
 
-app.listen(3000, () => {
-  console.log('server is running');
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+app.use('/users', usersRouter);
+
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).send(err.message);
+})
+
+app.listen(app.get('port'), () => {
+  console.log(app.get('port'), '번 포트에서 대기 중');
 })
