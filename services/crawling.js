@@ -47,13 +47,17 @@ const getReservationData = async (page) => {
   });
 };
 
-const getItems = async ({ articleNumber, naverId, naverPw }) => {
+const getItems = async ({ articleNumber }) => {
   const { page, browser } = await browserSetting();
 
   try {
     console.log('naver login...');
     // 로그인 
-    await haveLogin(page, naverId, naverPw);
+    await haveLogin(
+      page,
+      process.env.NAVER_ID, 
+      process.env.NAVER_PW,
+    );
 
     // 네이버 카페 수업 예약 게시글의 댓글창으로 이동.
     console.log('go to naver cafe...')
