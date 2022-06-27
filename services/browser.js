@@ -4,8 +4,8 @@ const browser = async () => {
   const width = 400, height = 900;
   const device = puppeteer.devices['iPhone X'];
   const options = {
-    headless: false,
-    devtools: true,
+    // headless: false,
+    // devtools: true,
     slowMo: 30,
     args: [
       `--window-size=${width},${height}`,
