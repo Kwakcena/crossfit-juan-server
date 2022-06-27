@@ -6,7 +6,7 @@ const browser = async () => {
   const options = {
     // headless: false,
     // devtools: true,
-    slowMo: 50,
+    slowMo: 30,
     args: [
       `--window-size=${width},${height}`,
       '--no-sandbox',
