@@ -12,8 +12,8 @@ const haveLogin = async (page, naverId, naverPw) => {
     naverPw,
   );
 
-  await page.click('.btn_login');
-  await page.waitForNavigation();
+  page.click('.btn_login');
+  await page.waitForNavigation({ waitUntil: 'load' });
 };
 
 const getReservationData = async (page) => {
