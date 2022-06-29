@@ -23,6 +23,11 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.get('/', function(req, res) {
+  console.log('Root Route');
+  res.json({ message: 'hello world!' });
+})
+
 app.use('/users', usersRouter);
 app.use('/articles', articlesRouter);
 
