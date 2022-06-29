@@ -62,8 +62,6 @@ const getItems = async ({ articleNumber }) => {
     // 네이버 카페 수업 예약 게시글의 댓글창으로 이동.
     console.log('go to naver cafe...')
     await page.goto(`https://m.cafe.naver.com/ca-fe/web/cafes/28152386/articles/${articleNumber}/comments?fromList=true`);
-    await page.waitForSelector('.comment_list');
-    await page.screenshot({ path: 'example.png' });
 
     // '다음 댓글 더보기' 버튼 클릭
     if(await page.$('.more_next') !== null) {
