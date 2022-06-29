@@ -13,7 +13,7 @@ const haveLogin = async (page, naverId, naverPw) => {
   );
 
   page.click('.btn_login');
-  await page.waitForNavigation({ waitUntil: 'load' });
+  await page.waitForNavigation();
 };
 
 const getReservationData = async (page) => {
@@ -62,10 +62,8 @@ const getItems = async ({ articleNumber, naverId, naverPw }) => {
     // 네이버 카페 수업 예약 게시글의 댓글창으로 이동.
     console.log('go to naver cafe...')
     await page.goto(`https://m.cafe.naver.com/ca-fe/web/cafes/28152386/articles/${articleNumber}/comments?fromList=true`);
+    await page.waitForSelector('.comment_list');
     console.log('page url: ', page.url());
-
-    const data = await page.evaluate(() => document.querySelector('*').outerHTML);
-    console.log(data);
 
     // '다음 댓글 더보기' 버튼 클릭
     if(await page.$('.more_next') !== null) {
