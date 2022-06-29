@@ -8,7 +8,13 @@ const router = express.Router()
 router.post(
   '/', 
   requestWrapper(async (req, res) => {
-    const data = await modal(req.body);
+    const { articleNumber } = req.body;
+
+    const data = await modal({
+      articleNumber,
+      naverId: process.env.NAVER_ID,
+      naverPw: process.env.NAVER_PW,
+    });
     
     res.status(200).json({
       success: true,
