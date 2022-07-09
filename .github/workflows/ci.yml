@@ -34,7 +34,8 @@ jobs:
         key: ${{ secrets.PRIVATE_KEY }}
         envs: GITHUB_SHA
         script: |
+          docker stop server
+          docker image rm -f $(docker image ls -q)
           docker pull rhkrgudwh/juan-crossfit-server:${GITHUB_SHA::7}
           docker tag rhkrgudwh/juan-crossfit-server:${GITHUB_SHA::7} juan-crossfit-server
-          docker stop server
           docker run -d --rm --name server -p 80:3000 juan-crossfit-server
