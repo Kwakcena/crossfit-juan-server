@@ -14,6 +14,11 @@ const haveLogin = async (page, naverId, naverPw) => {
 
   page.click('.btn_login');
   await page.waitForNavigation();
+
+  await page.screenshot({
+    fullPage: true,
+    path: `naver-login-${new Date().toISOString().substring(0, 10)}.jpeg`
+  })
 };
 
 const getReservationData = async (page) => {
