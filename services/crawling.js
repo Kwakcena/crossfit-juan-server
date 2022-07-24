@@ -15,10 +15,10 @@ const haveLogin = async (page, naverId, naverPw) => {
   page.click('.btn_login');
   await page.waitForNavigation();
 
-  await page.screenshot({
-    fullPage: true,
-    path: `naver-login-${new Date().toISOString().substring(0, 10)}.jpeg`
-  })
+  // await page.screenshot({
+  //   fullPage: true,
+  //   path: `naver-login-${new Date().toISOString().substring(0, 10)}.jpeg`
+  // })
 };
 
 const getReservationData = async (page) => {
@@ -69,10 +69,10 @@ const getItems = async ({ articleNumber, naverId, naverPw }) => {
     await page.goto(`https://m.cafe.naver.com/ca-fe/web/cafes/28152386/articles/${articleNumber}/comments?fromList=true`);
 
     // 해당 페이지에 잘 왔는지 스크린샷을 찍어 본다.
-    await page.screenshot({
-      fullPage: true,
-      path: `naver-cafe-${new Date().toISOString().substring(0, 10)}.jpeg`
-    })
+    // await page.screenshot({
+    //   fullPage: true,
+    //   path: `naver-cafe-${new Date().toISOString().substring(0, 10)}.jpeg`
+    // })
 
     await page.waitForSelector('.comment_list');
     console.log('page url: ', page.url());
