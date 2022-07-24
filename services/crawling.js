@@ -62,6 +62,13 @@ const getItems = async ({ articleNumber, naverId, naverPw }) => {
     // 네이버 카페 수업 예약 게시글의 댓글창으로 이동.
     console.log('go to naver cafe...')
     await page.goto(`https://m.cafe.naver.com/ca-fe/web/cafes/28152386/articles/${articleNumber}/comments?fromList=true`);
+
+    // 해당 페이지에 잘 왔는지 스크린샷을 찍어 본다.
+    await page.screenshot({
+      fullPage: true,
+      path: `naver-cafe-${new Date().toISOString().substring(0, 10)}.jpeg`
+    })
+
     await page.waitForSelector('.comment_list');
     console.log('page url: ', page.url());
 
