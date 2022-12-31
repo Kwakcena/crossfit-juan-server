@@ -1,9 +1,9 @@
-export const requestWrapper = asyncFn => {
+export const requestWrapper = (asyncFn) => {
   return async (req, res, next) => {
     try {
-      return await asyncFn(req, res, next)
+      return await asyncFn(req, res, next);
     } catch (error) {
-      return next(error)
+      return next(error);
     }
-  }
-}
+  };
+};
