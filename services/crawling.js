@@ -23,7 +23,9 @@ const haveLogin = async (page, naverId, naverPw) => {
 
 const getReservationData = async (page) => {
   const reservations = await page.evaluate(() => {
-    const commentList = Array.from(document.querySelectorAll(".comment_item"));
+    const commentList = Array.from(
+      document.querySelectorAll("ul.comment_list li")
+    ).filter((element) => !element.classList.contains("reply"));
 
     return commentList.map((item) => {
       const nickName = item.querySelector(".nick_name")?.textContent;
