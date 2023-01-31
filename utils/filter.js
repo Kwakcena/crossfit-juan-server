@@ -13,7 +13,7 @@ export const isCurrect = (text) => {
     if (
       /^[0-9]{4,}$/.test(time) &&
       /^[가-힣\s]+$/.test(name) &&
-      /^[0-9]{4,}$/.test(phone)
+      /^[0-9]{3,}$/.test(phone)
     ) {
       return true;
     }
