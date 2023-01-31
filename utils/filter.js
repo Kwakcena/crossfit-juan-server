@@ -1,5 +1,6 @@
 export const filterText = (text) =>
   text
+    .trim()
     .replace(/( +)?\n( +)?/g, "-")
     .replace(/:/g, "")
     .replace(/ +/g, " ")

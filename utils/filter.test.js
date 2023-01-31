@@ -37,6 +37,15 @@ describe("filterText", () => {
       expect(result).toBe("1900/곽형조/6962/취소-2000/곽형조/6962/변경");
     });
   });
+
+  context("마지막에 \n이 들어간 경우", () => {
+    const text = "1200/곽형조/0876\n";
+    it("trim이 동작하여 이를 제거한다.", () => {
+      const result = filterText(text);
+
+      expect(result).toBe("1200/곽형조/0876");
+    });
+  });
 });
 
 describe("isCurrect", () => {
