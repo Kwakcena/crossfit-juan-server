@@ -1,11 +1,11 @@
 import express from "express";
-import morgan from "morgan";
 import dotenv from "dotenv";
 import cors from "cors";
 import "express-async-errors";
 
 import usersRouter from "./routes/users.js";
 import articlesRouter from "./routes/articles.js";
+import {httpLogger} from "./utils/httpLogger.js";
 
 dotenv.config();
 const app = express();
@@ -13,18 +13,11 @@ const app = express();
 app.use(cors());
 app.set("port", process.env.PORT || 3000);
 
-app.use((req, res, next) => {
-  if (process.env.NODE_ENV === "production") {
-    morgan("combined")(req, res, next);
-  } else {
-    morgan("dev")(req, res, next);
-  }
-});
+app.use(httpLogger);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/", function (req, res) {
-  console.log("Root Route");
   res.json({ message: "hello world!" });
 });
 
