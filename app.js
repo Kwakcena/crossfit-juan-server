@@ -5,7 +5,6 @@ import cors from "cors";
 import "express-async-errors";
 
 import usersRouter from "./routes/users.js";
-import articlesRouter from "./routes/articles.js";
 
 dotenv.config();
 const app = express();
@@ -29,7 +28,6 @@ app.get("/", function (req, res) {
 });
 
 app.use("/users", usersRouter);
-app.use("/articles", articlesRouter);
 
 app.use((err, req, res, next) => {
   console.error("err: ", err);
