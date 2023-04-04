@@ -10,8 +10,6 @@ dotenv.config();
 const app = express();
 
 app.use(cors());
-app.set("port", process.env.PORT || 4000);
-
 app.use(httpLogger);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -31,9 +29,5 @@ app.use('*', (req, res) => {
   res.status = 404;
   res.json({ error: 'NOT_FOUND', message: '유효하지 않은 요청입니다.' });
 })
-
-app.listen(app.get("port"), () => {
-  console.log(app.get("port"), "번 포트에서 대기 중");
-});
 
 module.exports = app;

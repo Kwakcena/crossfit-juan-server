@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./bin/www.js",
-    "start": "node ./bin/www.js",
+    "dev": "nodemon ./bin/www",
+    "start": "node ./bin/www",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "keywords": [],
