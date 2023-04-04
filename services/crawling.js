@@ -1,5 +1,5 @@
-import browserSetting from "./browser.js";
-import { getTimeTable, isCurrect, filterText } from "../utils/filter.js";
+const browserSetting = require("./browser.js");
+const { getTimeTable, isCurrect, filterText } = require("../utils/filter.js")
 
 const haveLogin = async (page, naverId, naverPw) => {
   await page.goto("https://nid.naver.com/nidlogin.login");
@@ -97,6 +97,8 @@ const getItems = async ({ articleNumber, naverId, naverPw }) => {
   }
 };
 
-export const modal = async (data) => {
+const modal = async (data) => {
   return await getItems(data);
 };
+
+module.exports = modal;

@@ -1,10 +1,10 @@
-import express from "express";
-import dotenv from "dotenv";
-import cors from "cors";
-import "express-async-errors";
+const express = require('express');
+const dotenv = require('dotenv');
+const cors = require('cors');
+require('express-async-errors');
 
-import usersRouter from "./routes/users.js";
-import { httpLogger } from './utils/httpLogger.js';
+const usersRouter = require('./routes/users.js');
+const httpLogger = require('./utils/httpLogger.js');
 
 dotenv.config();
 const app = express();
@@ -35,3 +35,5 @@ app.use('*', (req, res) => {
 app.listen(app.get("port"), () => {
   console.log(app.get("port"), "번 포트에서 대기 중");
 });
+
+module.exports = app;

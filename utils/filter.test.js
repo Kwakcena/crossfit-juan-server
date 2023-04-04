@@ -1,14 +1,14 @@
-import {
+const {
   filterText,
   isCurrect,
   filterReservationData,
   getTimeTable,
-} from "./filter";
-import {
+} = require('./filter.js');
+const {
   filteredData,
   changedData,
   cancelData,
-} from "../mockData/filteredData";
+} = require("../mockData/filteredData")
 
 describe("filterText", () => {
   context.each([

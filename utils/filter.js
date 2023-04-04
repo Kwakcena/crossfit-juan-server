@@ -1,4 +1,4 @@
-export const filterText = (text) =>
+const filterText = (text) =>
   text
     .trim()
     .replace(/( +)?\n( +)?/g, "-")
@@ -7,7 +7,7 @@ export const filterText = (text) =>
     .replace(/ /g, "/")
     .replace(/\/+/g, "/");
 
-export const isCurrect = (text) => {
+const isCurrect = (text) => {
   const check = (it) => {
     const [time, name, phone] = it.split("/");
 
@@ -33,7 +33,7 @@ export const isCurrect = (text) => {
   return check(text);
 };
 
-export const filterReservationData = (data) => {
+const filterReservationData = (data) => {
   // 데이터 정제
   const reservation = filterText(data);
   // 예약 텍스트에 - 가 있는가? (취소와 변경이 같이 있는 글)
@@ -60,7 +60,7 @@ export const filterReservationData = (data) => {
   };
 };
 
-export const getTimeTable = (users) =>
+const getTimeTable = (users) =>
   users
     .map((it) => ({ ...it, content: { ...filterReservationData(it.content) } }))
     .reduce((acc, { content: { booked, cancel, change }, date }) => {
@@ -80,3 +80,10 @@ export const getTimeTable = (users) =>
       acc[time] = [...(acc[time] || []), { name, phone, date }];
       return acc;
     }, {});
+
+module.exports = {
+  filterText,
+  filterReservationData,
+  isCurrect,
+  getTimeTable,
+}
