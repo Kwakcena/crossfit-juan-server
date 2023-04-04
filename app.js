@@ -34,6 +34,11 @@ app.use((err, req, res, next) => {
   res.status(500).send(err.message);
 });
 
+app.use('*', (req, res) => {
+  res.status = 404;
+  res.json({ error: 'NOT_FOUND', message: '유효하지 않은 요청입니다.' });
+})
+
 app.listen(app.get("port"), () => {
   console.log(app.get("port"), "번 포트에서 대기 중");
 });
