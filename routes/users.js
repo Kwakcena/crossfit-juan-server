@@ -5,6 +5,7 @@ const router = express.Router();
 
 router.post("/", async (req, res) => {
   const { articleNumber } = req.body;
+  console.log('articleNumber: ', articleNumber);
 
   const data = await modal({
     articleNumber,
