@@ -89,9 +89,8 @@ const getItems = async ({ articleNumber, naverId, naverPw }) => {
       wrongData: users.wrongData,
     };
   } catch (err) {
-    console.log("\n", err);
+    console.log('error: ', error);
   } finally {
-    console.log("\n------------------\nCrawl completed\n");
     await page.close();
     await browser.close();
   }
