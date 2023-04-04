@@ -1,4 +1,4 @@
-export const filteredData = [
+const filteredData = [
   {
     nickName: '이희창',
     content: '1900/이희창/2019',
@@ -26,7 +26,7 @@ export const filteredData = [
   },
 ];
 
-export const changedData = [
+const changedData = [
   {
     nickName: '갈용',
     content: '2000/김용관/4434',
@@ -39,7 +39,7 @@ export const changedData = [
   },
 ];
 
-export const cancelData = [
+const cancelData = [
   {
     nickName: '갈용',
     content: '2000/김용관/4434',
@@ -62,7 +62,7 @@ export const cancelData = [
   },
 ];
 
-export const wrongData = [
+const wrongData = [
   {
     nickName: '갈용',
     content: '2000/김용관/4434',
@@ -84,3 +84,10 @@ export const wrongData = [
     date: '2022.03.23. 22:30'
   },
 ];
+
+module.exports = {
+  filteredData,
+  changedData,
+  cancelData,
+  wrongData,
+}

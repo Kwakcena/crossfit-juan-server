@@ -1,4 +1,4 @@
-import puppeteer from "puppeteer";
+const puppeteer = require('puppeteer');
 
 const browser = async () => {
   const width = 400,
@@ -21,10 +21,10 @@ const browser = async () => {
   await page.emulate(device);
   await page.setViewport({ width, height });
 
-  return await {
+  return {
     page,
     browser,
   };
 };
 
-export default browser;
+module.exports = browser;

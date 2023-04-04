@@ -1,6 +1,5 @@
-import express from "express";
-
-import { modal } from "../services/crawling.js";
+const express = require("express");
+const modal = require("../services/crawling.js");
 
 const router = express.Router();
 
@@ -19,4 +18,4 @@ router.post("/", async (req, res) => {
   });
 });
 
-export default router;
+module.exports = router;
